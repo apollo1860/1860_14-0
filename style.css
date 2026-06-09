@@ -1,0 +1,469 @@
+/* ==========================
+   34-0 TSV 1860 EDITION
+   ========================== */
+
+:root {
+
+    --bg: #050608;
+    --panel: #111418;
+    --panel-hover: #1a1f24;
+
+    --primary: #6bb6ff;
+    --primary-dark: #0b5fa5;
+
+    --white: #ffffff;
+    --text: #d7dce2;
+    --muted: #7d8793;
+
+    --pitch-light: #2f6d1f;
+    --pitch-dark: #2a621d;
+
+    --meister: #f6c945;
+    --vize: #cfd8e3;
+    --abstieg: #d63031;
+
+    --radius: 18px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+
+    min-height:100vh;
+}
+
+/* ==========================
+   APP
+   ========================== */
+
+#app{
+    width:min(1600px,95%);
+    margin:auto;
+    padding:40px;
+}
+
+/* ==========================
+   HEADER
+   ========================== */
+
+.logo{
+
+    text-align:center;
+
+    font-size:120px;
+    font-weight:900;
+
+    color:white;
+
+    margin-bottom:50px;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+/* ==========================
+   SECTIONS
+   ========================== */
+
+.section-title{
+
+    color:var(--muted);
+
+    letter-spacing:6px;
+
+    text-transform:uppercase;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+}
+
+/* ==========================
+   BUTTON GRID
+   ========================== */
+
+.option-grid{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+
+    margin-bottom:40px;
+}
+
+.option-btn{
+
+    background:var(--panel);
+
+    border:1px solid #252b31;
+
+    color:var(--text);
+
+    min-width:180px;
+
+    padding:22px;
+
+    border-radius:var(--radius);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.option-btn:hover{
+
+    background:var(--panel-hover);
+}
+
+.option-btn.active{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:white;
+}
+
+/* ==========================
+   PITCH
+   ========================== */
+
+.pitch{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:1.8;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:40px;
+
+    background:
+        repeating-linear-gradient(
+            180deg,
+            var(--pitch-light) 0px,
+            var(--pitch-light) 80px,
+            var(--pitch-dark) 80px,
+            var(--pitch-dark) 160px
+        );
+
+    border:3px solid rgba(255,255,255,.08);
+}
+
+/* ==========================
+   POSITION CIRCLES
+   ========================== */
+
+.position-slot{
+
+    position:absolute;
+
+    width:72px;
+    height:72px;
+
+    border-radius:50%;
+
+    background:#ffffff10;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-weight:700;
+
+    transform:translate(-50%,-50%);
+}
+
+.position-slot.filled{
+
+    background:var(--primary);
+
+    border:none;
+
+    flex-direction:column;
+
+    font-size:12px;
+}
+
+.position-slot.filled strong{
+
+    font-size:13px;
+}
+
+.position-slot.filled span{
+
+    font-size:11px;
+}
+
+/* ==========================
+   DRAFT LAYOUT
+   ========================== */
+
+.draft-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 450px;
+
+    gap:30px;
+}
+
+/* ==========================
+   SIDEBAR
+   ========================== */
+
+.sidebar{
+
+    background:var(--panel);
+
+    border-radius:var(--radius);
+
+    padding:25px;
+
+    height:fit-content;
+}
+
+.team-card{
+
+    background:#0c0e11;
+
+    border:1px solid #242a31;
+
+    border-radius:14px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+}
+
+.team-season{
+
+    font-size:36px;
+    font-weight:800;
+}
+
+.team-name{
+
+    color:var(--primary);
+
+    font-weight:700;
+}
+
+/* ==========================
+   PLAYER LIST
+   ========================== */
+
+.player-card{
+
+    width:100%;
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+
+    background:#0d1013;
+
+    border:1px solid #232a31;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    cursor:pointer;
+
+    margin-bottom:10px;
+
+    transition:.15s;
+}
+
+.player-card:hover{
+
+    border-color:var(--primary);
+}
+
+.player-rating{
+
+    width:44px;
+    height:44px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:800;
+}
+
+.player-info{
+
+    display:flex;
+    flex-direction:column;
+}
+
+/* ==========================
+   START BUTTON
+   ========================== */
+
+.start-button{
+
+    width:100%;
+
+    border:none;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    font-size:26px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary-dark),
+        var(--primary)
+    );
+}
+
+/* ==========================
+   TABLE
+   ========================== */
+
+#league-table{
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.table-row{
+
+    display:grid;
+
+    grid-template-columns:
+        60px
+        1fr
+        120px
+        80px
+        80px;
+
+    align-items:center;
+
+    background:var(--panel);
+
+    padding:18px;
+
+    border-radius:12px;
+}
+
+.table-row.meister{
+
+    border-left:6px solid var(--meister);
+}
+
+.table-row.vize{
+
+    border-left:6px solid var(--vize);
+}
+
+.table-row.abstieg{
+
+    border-left:6px solid var(--abstieg);
+}
+
+/* ==========================
+   RESULTS
+   ========================== */
+
+.result-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:14px 0;
+
+    border-bottom:1px solid #22272c;
+}
+
+/* ==========================
+   MODAL
+   ========================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.modal.is-open{
+
+    display:flex;
+}
+
+.modal-content{
+
+    background:var(--panel);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    width:500px;
+}
+
+/* ==========================
+   MOBILE
+   ========================== */
+
+@media(max-width:1100px){
+
+    .draft-layout{
+
+        grid-template-columns:1fr;
+    }
+
+    .logo{
+
+        font-size:70px;
+    }
+
+}
