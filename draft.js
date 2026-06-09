@@ -19,8 +19,7 @@ export const draftState = {
 };
 
 export function initializeDraft() {
-    renderDraftScreen();
-    bindDraftEvents();
+    renderSetupScreen();
 }
 
 function renderDraftScreen() {
