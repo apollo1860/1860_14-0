@@ -22,6 +22,74 @@ export function initializeDraft() {
     renderSetupScreen();
 }
 
+function renderSetupScreen() {
+    const app = document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="setup-screen">
+            <h1 class="setup-title">34<span>-</span>0</h1>
+
+            <div class="setup-group">
+                <h3 class="section-title">Formation</h3>
+                <div class="setup-options">
+                    ${["4-3-3", "4-4-2", "4-2-3-1", "4-1-2-1-2", "3-5-2"].map(f => `
+                        <button class="option-btn setup-formation ${draftState.formation === f ? "active" : ""}" data-value="${f}">
+                            ${f}
+                        </button>
+                    `).join("")}
+                </div>
+            </div>
+
+            <div class="setup-group">
+                <h3 class="section-title">Ratings anzeigen</h3>
+                <div class="setup-options">
+                    <button class="option-btn setup-ratings active" data-value="true">An</button>
+                    <button class="option-btn setup-ratings" data-value="false">Aus</button>
+                </div>
+            </div>
+
+            <div class="setup-group">
+                <h3 class="section-title">Joker</h3>
+                <div class="setup-options">
+                    ${[0, 1, 2, 3].map(j => `
+                        <button class="option-btn setup-joker ${draftState.jokerCount === j ? "active" : ""}" data-value="${j}">
+                            ${j} Joker
+                        </button>
+                    `).join("")}
+                </div>
+            </div>
+
+            <button id="start-draft-button" class="start-button">Draft starten</button>
+        </div>
+    `;
+
+    document.querySelectorAll(".setup-formation").forEach(btn => {
+        btn.addEventListener("click", () => {
+            draftState.formation = btn.dataset.value;
+            renderSetupScreen();
+        });
+    });
+
+    document.querySelectorAll(".setup-ratings").forEach(btn => {
+        btn.addEventListener("click", () => {
+            draftState.ratingsVisible = btn.dataset.value === "true";
+            renderSetupScreen();
+        });
+    });
+
+    document.querySelectorAll(".setup-joker").forEach(btn => {
+        btn.addEventListener("click", () => {
+            draftState.jokerCount = Number(btn.dataset.value);
+            renderSetupScreen();
+        });
+    });
+
+    document.getElementById("start-draft-button").addEventListener("click", () => {
+        renderDraftScreen();
+        bindDraftEvents();
+    });
+}
+
 function renderDraftScreen() {
   const app = document.getElementById("app");
 
