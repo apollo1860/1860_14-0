@@ -457,30 +457,42 @@ body{
 @media(max-width:1100px){
 
     .draft-layout{
-
         grid-template-columns:1fr;
     }
 
     .logo{
-
         font-size:70px;
     }
 
-.player-card {
-    color: #ffffff;
+}
+
+/* ==========================
+   PLAYER TEXT FIX
+   ========================== */
+
+.player-card,
+.player-card * {
+    color: #ffffff !important;
 }
 
 .player-info strong {
-    color: #ffffff;
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .player-info small {
-    color: #9ca3af;
+    color: #9ca3af !important;
+    font-size: 16px;
 }
 
 .player-card:disabled {
     opacity: 0.35;
 }
+
+/* ==========================
+   BUTTONS
+   ========================== */
 
 .ghost-button {
     color: #ffffff;
@@ -490,6 +502,10 @@ body{
     border-radius: 12px;
     cursor: pointer;
 }
+
+/* ==========================
+   SETUP SCREEN
+   ========================== */
 
 .setup-screen {
     max-width: 1100px;
@@ -502,6 +518,10 @@ body{
     text-align: center;
     margin-bottom: 60px;
     color: #ffffff;
+}
+
+.setup-title span {
+    color: var(--primary);
 }
 
 .setup-group {
@@ -519,4 +539,28 @@ body{
     color: #ffffff;
 }
 
+/* ==========================
+   SIDEBAR TITLES
+   ========================== */
+
+.sidebar-title {
+    color: #ffffff;
+    margin: 20px 0;
+    font-size: 28px;
+}
+
+/* ==========================
+   TEAM CARD
+   ========================== */
+
+.team-season {
+    color: #ffffff;
+}
+
+.team-name {
+    color: var(--primary);
+}
+
+.team-count {
+    color: #9ca3af;
 }
