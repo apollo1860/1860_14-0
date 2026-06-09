@@ -18,9 +18,9 @@ export const draftState = {
   isRolling: false
 };
 
-export function initDraft() {
-  renderDraftScreen();
-  bindDraftEvents();
+export function initializeDraft() {
+    renderDraftScreen();
+    bindDraftEvents();
 }
 
 function renderDraftScreen() {
