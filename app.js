@@ -5,23 +5,25 @@ import { initializeDraft } from "./draft.js";
 import { initializeSimulation } from "./simulation.js";
 
 export const gameState = {
-    formation: null,
-    difficulty: null,
+    formation: "4-3-3",
+    difficulty: "normal",
     ratingsVisible: true,
+    draftMode: "squadFirst",
+    ratingMode: "season",
 
     pickedPlayers: [],
     usedTeams: [],
 
     currentTeam: null,
-    leagueTeams: []
+    leagueTeams: [],
+
+    currentScreen: "draft"
 };
 
 window.gameState = gameState;
 
 document.addEventListener("DOMContentLoaded", () => {
-
     initializeUI();
-    initializeDraft();
     initializeSimulation();
-
+    initializeDraft();
 });
